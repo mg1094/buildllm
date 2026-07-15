@@ -182,7 +182,7 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
         idx_cond = idx[:, -context_size:]
         with torch.no_grad():
             logits = model(idx_cond)
-        logits = logits[:, -1, :]
+        logits = logits[:, -1, :] #获取最后一个token的logits，因为我们想要的是下一个token的预测
         probas = torch.softmax(logits, dim=-1)
         idx_next = torch.argmax(probas, dim=-1, keepdim=True)
         idx = torch.cat((idx, idx_next), dim=1)
