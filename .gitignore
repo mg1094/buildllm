@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 模型权重 (太大不入库)
+*.pth
+*.pt
+*.pkl
+*.bin
+*.safetensors
+
+# 数据集 (太大不入库)
+data/
+datasets/
+*.csv
+*.json
+!package*.json
+
+# 日志
+*.log
+logs/
+
+# 系统文件
+.DS_Store
+Thumbs.db
