@@ -390,15 +390,19 @@ if __name__ == "__main__":
     train_text = raw_text[:split_idx]
     val_text = raw_text[split_idx:]
 
-    # 创建数据加载器 (使用更小的 max_length 确保有足够 batch)
+    print(f"训练文本: {len(train_text)} 字符")
+    print(f"验证文本: {len(val_text)} 字符")
+
+    # 创建数据加载器 (使用较小的 max_length 确保有足够 batch)
     torch.manual_seed(123)
     train_loader = create_dataloader_v1(
-        train_text, batch_size=2, max_length=64,
-        stride=64, shuffle=True
+        train_text, batch_size=2, max_length=32,
+        stride=32, shuffle=True
     )
     val_loader = create_dataloader_v1(
-        val_text, batch_size=2, max_length=64,
-        stride=64, shuffle=False
+        val_text, batch_size=2, max_length=32,
+        stride=16,  # 更小的 stride 确保验证集有足够 batch
+        shuffle=False
     )
 
     print(f"训练 batch 数: {len(train_loader)}")
