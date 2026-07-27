@@ -31,6 +31,15 @@ datasets/
 *.csv
 *.json
 !package*.json
+*.zip
+*.tsv
+
+# 生成的图片和可视化结果
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.svg
 
 # 日志
 *.log
